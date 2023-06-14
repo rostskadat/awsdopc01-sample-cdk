@@ -1,0 +1,9 @@
+{
+  "app": "python3 app.py",
+  "versionReporting": false,
+  "context": {
+    "vpc_id": "vpc-05264364314f8f49d",
+    "environment_count": 1
+  },
+  "watch": "."
+}

@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Install started on `date`
+      - apt install npm
+      - npm install n
+      - n lts
+  pre_build:
+    commands:
+      - echo Pre build started on `date`
+      - npm install cdk
+      - cdk deploy
+  build:
+    commands:
+      - echo Build started on `date`
+      - cdk deploy
+    finally:
+      - cdk destroy
