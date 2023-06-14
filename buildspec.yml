@@ -17,7 +17,7 @@ phases:
     commands:
       # For this sample we let the CloudFormation action do the 
       # actual deployment
-      - echo Build started on `date` <
+      - echo Build started on `date`
       - cdk synth
 artifacts:
   files:
