@@ -4,7 +4,8 @@ phases:
   install:
     commands:
       - echo Install started on `date`
-      - apt install npm
+      - apt update -y
+      - apt install -y npm
       - npm install n
       - n lts
   pre_build:
