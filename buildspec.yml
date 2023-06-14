@@ -1,3 +1,7 @@
+#
+# To build locally: https://docs.aws.amazon.com/codebuild/latest/userguide/use-codebuild-agent.html
+# ./codebuild_build.sh -i public.ecr.aws/codebuild/amazonlinux2-aarch64-standard:3.0 -a out
+#
 version: 0.2
 
 phases:
@@ -7,24 +11,14 @@ phases:
       python: 3.11
     commands:
       - echo Install started on `date`
-      # - apt update -y
-      # - apt install -y curl npm python3-pip
-      # - pip install -r requirements.txt
-      # - npm install -g n && n lts && hash -r
-      # - node --version
-      # - npm install --global cdk
       - pip install -r requirements.txt
       - npm install --global cdk && cdk --version
-  pre_build:
-    commands:
-      - echo Pre build started on `date`
-      - cdk deploy
   build:
     commands:
-      - echo Build started on `date`
-      - cdk deploy
-    finally:
-      - cdk destroy
+      # For this sample we let the CloudFormation action do the 
+      # actual deployment
+      - echo Build started on `date` <
+      - cdk synth
 artifacts:
   files:
     - "**/*"
