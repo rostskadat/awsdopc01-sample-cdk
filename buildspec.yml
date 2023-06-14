@@ -2,17 +2,17 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 18.x
     commands:
       - echo Install started on `date`
-      - apt update -y
-      - apt install -y curl npm python3-pip
-      - npm install --global n
-      - n lts
-      - hash -r
-      - node --version
-      - npm install --global cdk
+      # - apt update -y
+      # - apt install -y curl npm python3-pip
+      # - pip install -r requirements.txt
+      # - npm install -g n && n lts && hash -r
+      # - node --version
+      # - npm install --global cdk
       - cdk --version
-      - pip install -r requirements.txt
   pre_build:
     commands:
       - echo Pre build started on `date`
