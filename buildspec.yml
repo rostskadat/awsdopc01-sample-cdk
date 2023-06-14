@@ -3,7 +3,8 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18.x
+      nodejs: 18
+      python: 3.11
     commands:
       - echo Install started on `date`
       # - apt update -y
@@ -12,6 +13,7 @@ phases:
       # - npm install -g n && n lts && hash -r
       # - node --version
       # - npm install --global cdk
+      - pip install -r requirements.txt
       - npm install --global cdk && cdk --version
   pre_build:
     commands:
