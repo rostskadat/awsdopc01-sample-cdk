@@ -5,13 +5,17 @@ phases:
     commands:
       - echo Install started on `date`
       - apt update -y
-      - apt install -y npm
-      - npm install n
+      - apt install -y curl npm python3-pip
+      - npm install --global n
       - n lts
+      - hash -r
+      - node --version
+      - npm install --global cdk
+      - cdk --version
+      - pip install -r requirements.txt
   pre_build:
     commands:
       - echo Pre build started on `date`
-      - npm install cdk
       - cdk deploy
   build:
     commands:
@@ -19,3 +23,8 @@ phases:
       - cdk deploy
     finally:
       - cdk destroy
+artifacts:
+  files:
+    - "**/*"
+  base-directory: "cdk.out"
+  discard-paths: yes
